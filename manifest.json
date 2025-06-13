@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "GitHub PR Quality Gatekeeper",
+  "version": "1.0",
+  "description": "Blocks PR submission unless all checks pass and a description is added.",
+  "permissions": ["scripting"],
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*/*/pull/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
+
