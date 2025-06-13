@@ -1,12 +1,20 @@
 {
   "manifest_version": 3,
   "name": "GitHub PR Quality Gatekeeper",
-  "version": "1.0",
-  "description": "Blocks PR submission unless all checks pass and a description is added.",
-  "permissions": ["scripting"],
+  "version": "1.1",
+  "description": "Prevents creating PRs unless all checks pass and a description is added.",
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
   "content_scripts": [
     {
-      "matches": ["https://github.com/*/*/pull/*"],
+      "matches": ["https://github.com/*/*/pull/*", "https://github.com/*/*/compare/*"],
       "js": ["content.js"],
       "run_at": "document_idle"
     }
